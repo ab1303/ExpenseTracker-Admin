@@ -1,0 +1,8 @@
+C:\github\UserAdministration\PartnerUser.Domain\bin\Debug\netcoreapp2.2\Admin.Domain.deps.json
+C:\github\UserAdministration\PartnerUser.Domain\bin\Debug\netcoreapp2.2\Admin.Domain.dll
+C:\github\UserAdministration\PartnerUser.Domain\bin\Debug\netcoreapp2.2\Admin.Domain.pdb
+C:\github\UserAdministration\PartnerUser.Domain\obj\Debug\netcoreapp2.2\Admin.Domain.csproj.CoreCompileInputs.cache
+C:\github\UserAdministration\PartnerUser.Domain\obj\Debug\netcoreapp2.2\Admin.Domain.AssemblyInfoInputs.cache
+C:\github\UserAdministration\PartnerUser.Domain\obj\Debug\netcoreapp2.2\Admin.Domain.AssemblyInfo.cs
+C:\github\UserAdministration\PartnerUser.Domain\obj\Debug\netcoreapp2.2\Admin.Domain.dll
+C:\github\UserAdministration\PartnerUser.Domain\obj\Debug\netcoreapp2.2\Admin.Domain.pdb

@@ -1,0 +1,12 @@
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\bin\Debug\netcoreapp2.2\PartnerUser.Infrastructure.deps.json
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\bin\Debug\netcoreapp2.2\PartnerUser.Infrastructure.dll
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\bin\Debug\netcoreapp2.2\PartnerUser.Infrastructure.pdb
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\bin\Debug\netcoreapp2.2\PartnerUser.Common.dll
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\bin\Debug\netcoreapp2.2\PartnerUser.Common.pdb
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\obj\Debug\netcoreapp2.2\PartnerUser.Infrastructure.csprojAssemblyReference.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\obj\Debug\netcoreapp2.2\PartnerUser.Infrastructure.csproj.CoreCompileInputs.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\obj\Debug\netcoreapp2.2\PartnerUser.Infrastructure.AssemblyInfoInputs.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\obj\Debug\netcoreapp2.2\PartnerUser.Infrastructure.AssemblyInfo.cs
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\obj\Debug\netcoreapp2.2\PartnerUser.Infrastructure.csproj.CopyComplete
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\obj\Debug\netcoreapp2.2\PartnerUser.Infrastructure.dll
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Infrastructure\obj\Debug\netcoreapp2.2\PartnerUser.Infrastructure.pdb

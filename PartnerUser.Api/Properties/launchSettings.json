@@ -1,0 +1,33 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:54193/",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "BslBaseAddress": "https://api.15.dev.ofx.com",
+        "PartnerUserDB__ConnectionString": "server=localhost;userid=partnership;password=Password@123;database=PartnerUserDB;",
+        "PartnerUserTableName": "PartnerUser-develop",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "PartnerUser.Api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "BslBaseAddress": "https://api.15.dev.ofx.com",
+        "PartnerUserDB__ConnectionString": "server=localhost;userid=yuau;password=password;database=PartnerUserDB;",
+        "PartnerUserTableName": "PartnerUser-develop",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:54194/"
+    }
+  }
+}

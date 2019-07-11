@@ -1,0 +1,9 @@
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\bin\Debug\netcoreapp2.2\PartnerUser.Domain.deps.json
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\bin\Debug\netcoreapp2.2\PartnerUser.Domain.dll
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\bin\Debug\netcoreapp2.2\PartnerUser.Domain.pdb
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\obj\Debug\netcoreapp2.2\PartnerUser.Domain.csprojAssemblyReference.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\obj\Debug\netcoreapp2.2\PartnerUser.Domain.csproj.CoreCompileInputs.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\obj\Debug\netcoreapp2.2\PartnerUser.Domain.AssemblyInfoInputs.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\obj\Debug\netcoreapp2.2\PartnerUser.Domain.AssemblyInfo.cs
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\obj\Debug\netcoreapp2.2\PartnerUser.Domain.dll
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Domain\obj\Debug\netcoreapp2.2\PartnerUser.Domain.pdb

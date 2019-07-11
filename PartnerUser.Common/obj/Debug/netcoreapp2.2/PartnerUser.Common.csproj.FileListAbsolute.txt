@@ -1,0 +1,9 @@
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\bin\Debug\netcoreapp2.2\PartnerUser.Common.deps.json
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\bin\Debug\netcoreapp2.2\PartnerUser.Common.dll
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\bin\Debug\netcoreapp2.2\PartnerUser.Common.pdb
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\obj\Debug\netcoreapp2.2\PartnerUser.Common.csprojAssemblyReference.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\obj\Debug\netcoreapp2.2\PartnerUser.Common.csproj.CoreCompileInputs.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\obj\Debug\netcoreapp2.2\PartnerUser.Common.AssemblyInfoInputs.cache
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\obj\Debug\netcoreapp2.2\PartnerUser.Common.AssemblyInfo.cs
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\obj\Debug\netcoreapp2.2\PartnerUser.Common.dll
+C:\dev\par\partneruserservice\PartnerUser.Api\PartnerUser.Common\obj\Debug\netcoreapp2.2\PartnerUser.Common.pdb

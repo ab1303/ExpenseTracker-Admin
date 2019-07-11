@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "PartnerUser.Api.UnitTests": {
+      "commandName": "Project",
+      "environmentVariables": {
+        
+      }
+    }
+  }
+}

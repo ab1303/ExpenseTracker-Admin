@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Admin.Api</name>
+    </assembly>
+    <members>
+        <member name="M:PartnerUser.Api.Controllers.PartnerUsersController.GetPartnerUserList(PartnerUser.Api.Requests.PartnerUserFilterRequest)">
+            <summary>
+            Get a list of all partner User resources filtered by partnerAppId and ofxUserGuid
+            </summary>
+            <param name="request"></param>
+            <returns>Produces a response comprising a list of PartnerUser resources</returns>
+            <response code="200">When List of PartnerUser is returned</response>
+        </member>
+        <member name="M:PartnerUser.Api.Controllers.PartnerUsersController.CreatePartnerUser(PartnerUser.Api.Requests.CreatePartnerUserRequest)">
+            <summary>
+            Creates a new PartnerUser relationship and returns PartnerUserId GUID
+            </summary>
+            <remarks>
+            Use this endpoint to create a PartnerUser
+            </remarks>
+            <param  name="request">Details required for creation of PartnerUser</param>
+            <returns>Returns PartnerUserId Guid on successful creation of PartnerUser</returns>
+            <response code="201">When a new PartnerUser is created</response>
+            <response code="400">If OfxUserGuid is empty, or PartnerAppId is empty</response>
+            <response code="409">OfxUserGuid + PartnerAppId already exists in the system</response>
+        </member>
+        <member name="M:PartnerUser.Api.Controllers.PartnerUsersController.UpdatePartnerUser(System.Guid,PartnerUser.Api.Requests.UpdatePartnerUserRequest)">
+            <summary>
+            Updates a PartnerUser by PartnerUserId
+            </summary>
+            <remarks>
+            Use this endpoint to update a PartnerUser
+            </remarks>
+            <param name="partnerUserId"></param>
+            <param  name="request">Details required for update of PartnerUser</param>
+            <returns>Returns OK on successful update of PartnerUser</returns>
+            <response code="200">When a new PartnerUser is updated</response>
+            <response code="404">PartnerUser not found by partnerUserId</response>
+        </member>
+        <member name="M:PartnerUser.Api.Controllers.PartnerUsersController.GetPartnerUser(System.Guid)">
+            <summary>
+            Gets a PartnerUser by PartnerUserId
+            </summary>
+            <remarks>
+            Use this endpoint to retrive a PartnerUser by PartnerUserId
+            </remarks>
+            <param name="partnerUserId"></param>
+            <returns>Returns the requested PartnerUser</returns>
+            <response code="200">When a PartnerUser is returned</response>
+            <response code="404">PartnerUser not found by partnerUserId</response>
+        </member>
+    </members>
+</doc>
