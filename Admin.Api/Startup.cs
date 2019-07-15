@@ -25,9 +25,7 @@ using Admin.Infrastructure.HttpClients;
 using Admin.Infrastructure.Logging;
 using Admin.Infrastructure.Logging.SerilogAdaptor;
 using Admin.Infrastructure.Logging.SerilogAdaptor.interfaces;
-using Admin.Repositories;
 using Admin.Repositories.DbContext;
-using Admin.Services;
 using Admin.Services.interfaces;
 using Admin.Services.Results;
 
