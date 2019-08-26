@@ -1,0 +1,15 @@
+https://dev.to/andrejnaumovski/async-actions-in-redux-with-rxjs-and-redux-observable-efg
+
+https://medium.com/@ksholla20/react-redux-with-typescript-ad7266896a9b
+
+https://github.com/mmajdanski/cra-redux-observable
+
+https://blog.bitsrc.io/11-react-application-boilerplates-for-2019-b49a8226ea54
+
+https://github.com/YDJ-FE/ts-react-webpack
+
+https://github.com/ranjithprabhuk/material-magic
+
+https://github.com/YDJ-FE/ts-react-webpack ******
+
+https://github.com/devias-io/react-material-dashboard?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more
