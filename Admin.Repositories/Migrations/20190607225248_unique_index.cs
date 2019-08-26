@@ -8,7 +8,7 @@ namespace Admin.Repositories.Migrations
         {
             migrationBuilder.CreateIndex(
                 name: "IX_PartnerUsers_OfxUserGuid_PartnerAppId",
-                table: "PartnerUsers",
+                table: "Users",
                 columns: new[] { "OfxUserGuid", "PartnerAppId" },
                 unique: true);
         }
@@ -17,7 +17,7 @@ namespace Admin.Repositories.Migrations
         {
             migrationBuilder.DropIndex(
                 name: "IX_PartnerUsers_OfxUserGuid_PartnerAppId",
-                table: "PartnerUsers");
+                table: "Users");
         }
     }
 }

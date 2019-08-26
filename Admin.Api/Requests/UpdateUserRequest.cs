@@ -1,34 +1,24 @@
-using System;
 using System.Net;
 using Admin.Services.Results;
 
 namespace Admin.Api.Requests
 {
-    public class UpdatePartnerUserRequest
+    public class UpdateUserRequest
     {
-        private Guid? _beneficiaryId;
-        private bool _isBeneficiaryIdSet;
-
-        public Guid? BeneficiaryId {
-            get => _beneficiaryId;
-            set {
-                _beneficiaryId = value;
-                _isBeneficiaryIdSet = true;
-            }
-        }
+        public string FirstName { get; set; }
 
         public HttpServiceResult ValidateAllEditablePropertiesSet()
         {
             var serviceResult = new HttpServiceResult{ Status = ServiceResultStatus.Success };
 
-            if (_isBeneficiaryIdSet == false)
+            if (string.IsNullOrWhiteSpace(FirstName))
             {
                 serviceResult.HttpStatusCode = HttpStatusCode.BadRequest;
                 serviceResult.Status = ServiceResultStatus.Failure;
                 serviceResult.Error = new Error
                 {
                     ErrorCode = ErrorCodes.RequestPropertyNotSet,
-                    SystemMessage = $"The {nameof(BeneficiaryId)} field must be set to null or a Guid."
+                    SystemMessage = $"The {nameof(FirstName)} field must have a value."
                 };
             }
             return serviceResult;

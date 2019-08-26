@@ -9,7 +9,7 @@ namespace Admin.Repositories.Migrations
         {
             migrationBuilder.AlterColumn<DateTime>(
                 name: "UpdatedDate",
-                table: "PartnerUsers",
+                table: "Users",
                 type: "DATETIME",
                 nullable: false,
                 oldClrType: typeof(DateTime),
@@ -17,7 +17,7 @@ namespace Admin.Repositories.Migrations
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedDate",
-                table: "PartnerUsers",
+                table: "Users",
                 type: "DATETIME",
                 nullable: false,
                 oldClrType: typeof(DateTime),
@@ -28,7 +28,7 @@ namespace Admin.Repositories.Migrations
         {
             migrationBuilder.AlterColumn<DateTime>(
                 name: "UpdatedDate",
-                table: "PartnerUsers",
+                table: "Users",
                 type: "TIMESTAMP",
                 nullable: false,
                 oldClrType: typeof(DateTime),
@@ -36,7 +36,7 @@ namespace Admin.Repositories.Migrations
 
             migrationBuilder.AlterColumn<DateTime>(
                 name: "CreatedDate",
-                table: "PartnerUsers",
+                table: "Users",
                 type: "TIMESTAMP",
                 nullable: false,
                 oldClrType: typeof(DateTime),

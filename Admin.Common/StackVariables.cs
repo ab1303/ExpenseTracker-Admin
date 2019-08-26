@@ -6,6 +6,6 @@ namespace Admin.Common
     {
         public static string LoggingLevelSwitchMinimumLevel => Environment.GetEnvironmentVariable("LoggingLevelSwitchMinimumLevel");
         public static string BslBaseAddress => Environment.GetEnvironmentVariable("BslBaseAddress");
-        public static string PartnerUserDbConnString => Environment.GetEnvironmentVariable("AdminDB__ConnectionString");
+        public static string UserDbConnString => Environment.GetEnvironmentVariable("AdminDB__ConnectionString");
     }
 }

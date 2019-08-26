@@ -12,8 +12,8 @@ namespace Admin.Api.UnitTests.Api.Requests
         public void ValidateAllEditablePropertiesSet_Should_Return_Success_If_BeneficaryId_Set_To_Null()
         {
             //Arrange
-            var request = new UpdatePartnerUserRequest{
-                BeneficiaryId = null
+            var request = new UpdateUserRequest{
+                FirstName = null
             };
 
             //Act
@@ -28,9 +28,9 @@ namespace Admin.Api.UnitTests.Api.Requests
         public void ValidateAllEditablePropertiesSet_Should_Return_Success_If_BeneficaryId_Set_To_Guid()
         {
             //Arrange
-            var request = new UpdatePartnerUserRequest
+            var request = new UpdateUserRequest
             {
-                BeneficiaryId = Guid.NewGuid()
+                FirstName = "Updated FirstName"
             };
 
             //Act
@@ -45,7 +45,7 @@ namespace Admin.Api.UnitTests.Api.Requests
         public void ValidateAllEditablePropertiesSet_Should_Return_Fail_If_BeneficaryId_Not_Set()
         {
             //Arrange
-            var request = new UpdatePartnerUserRequest();
+            var request = new UpdateUserRequest();
 
             //Act
             var validateResult = request.ValidateAllEditablePropertiesSet();
