@@ -9,7 +9,7 @@ namespace Admin.Repositories.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "PartnerUsers",
+                name: "Users",
                 columns: table => new
                 {
                     PartnerUserId = table.Column<Guid>(maxLength: 36, nullable: false),
@@ -30,7 +30,7 @@ namespace Admin.Repositories.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PartnerUsers");
+                name: "Users");
         }
     }
 }

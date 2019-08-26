@@ -2,11 +2,11 @@
 {
     public class Repositories: IRepositories
     {
-        public Repositories(IPartnerUserRepository partnerUserRepository)
+        public Repositories(IUserRepository userRepository)
         {
-            PartnerUserRepository = partnerUserRepository;
+            UserRepository = userRepository;
         }
 
-        public IPartnerUserRepository PartnerUserRepository { get; }
+        public IUserRepository UserRepository { get; }
     }
 }

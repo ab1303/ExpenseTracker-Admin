@@ -12,15 +12,15 @@ namespace Admin.Api.IntegrationTests.Scenarios
 {
     public class TestBase : IAsyncLifetime
     {
-        private readonly PartnerUserDbContext _dbContext;
+        private readonly AdminDbContext _dbContext;
         public TestBase()
         {
-            var optionsBuilder = new DbContextOptionsBuilder<PartnerUserDbContext>();
-            optionsBuilder.UseMySql(StackVariables.PartnerUserDbConnString);
-            _dbContext = new PartnerUserDbContext(optionsBuilder.Options);
+            var optionsBuilder = new DbContextOptionsBuilder<AdminDbContext>();
+            optionsBuilder.UseMySql(StackVariables.UserDbConnString);
+            _dbContext = new AdminDbContext(optionsBuilder.Options);
         }
 
-        public Dictionary<Guid, Guid> OfxUserGuidPartnerAppIdListForCleanUp { get; set; }
+        public Dictionary<Guid, string> UserGuidListForCleanUp { get; set; }
 
         public async Task<TResponse> DeserializeHttpResponseMessageContentAsync<TResponse>(HttpResponseMessage httpResponseMessage)
         {
@@ -33,19 +33,19 @@ namespace Admin.Api.IntegrationTests.Scenarios
         public async Task InitializeAsync()
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
-            OfxUserGuidPartnerAppIdListForCleanUp = new Dictionary<Guid, Guid>();
+            UserGuidListForCleanUp = new Dictionary<Guid, string>();
         }
 
         public async Task DisposeAsync()
         {
-            foreach (var item in OfxUserGuidPartnerAppIdListForCleanUp)
+            foreach (var item in UserGuidListForCleanUp)
             {
-                var partnerUser = await _dbContext.PartnerUsers.SingleOrDefaultAsync(pu =>
-                    pu.OfxUserGuid == item.Key && pu.PartnerAppId == item.Value);
+                var partnerUser = await _dbContext.Users.SingleOrDefaultAsync(pu =>
+                    pu.UserId == item.Key && pu.Email == item.Value);
 
                 if (partnerUser != null)
                 {
-                    _dbContext.PartnerUsers.Remove(partnerUser);
+                    _dbContext.Users.Remove(partnerUser);
                 }
 
                 await _dbContext.SaveChangesAsync();

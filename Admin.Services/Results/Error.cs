@@ -8,10 +8,10 @@ namespace Admin.Services.Results
 
     public static class ErrorCodes
     {
-        public static string DuplicatePartnerUserInsert = "PU:DUPLICATE:0001";
-        public static string PartnerUserNotFound = "PU:NOTFOUND:0001";
+        public static string DuplicateUserInsert = "U:DUPLICATE:0001";
+        public static string UserNotFound = "U:NOTFOUND:0001";
         public static string UnknownError = "GEN:UNKNOWN";
-        public static string RequestInvalidGeneric = "PU:REQUEST:0001";
-        public static string RequestPropertyNotSet = "PU:REQUEST:0002";
+        public static string RequestInvalidGeneric = "U:REQUEST:0001";
+        public static string RequestPropertyNotSet = "U:REQUEST:0002";
     }
 }

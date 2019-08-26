@@ -8,11 +8,11 @@ namespace Admin.Api.UnitTests.Repositories
 {
     public class MockRepositories: IRepositories
     {
-        public IPartnerUserRepository PartnerUserRepository { get; }
+        public IUserRepository UserRepository { get; }
 
-        public MockRepositories(IPartnerUserRepository partnerUserRepository)
+        public MockRepositories(IUserRepository userRepository)
         {
-            PartnerUserRepository = partnerUserRepository;
+            UserRepository = userRepository;
         }
 
     }

@@ -59,8 +59,8 @@ namespace Admin.Api
             services.AddScoped<IRepositories, Admin.Repositories.Repositories>();
 
             // Register Services
-            services.AddScoped<IPartnerUserRepository, PartnerUserRepository>();
-            services.AddScoped<IPartnerUserService, PartnerUserService>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<IUserVerificationStatusService, UserVerificationStatusService>();
 
             // SeriLogger Setup
@@ -75,15 +75,15 @@ namespace Admin.Api
             services.AddSingleton<ILogContextService, SerilogLogContextService>();
 
             var connectionString = string.IsNullOrEmpty(Configuration["AdminDB:ConnectionString"]) 
-                ? StackVariables.PartnerUserDbConnString
+                ? StackVariables.UserDbConnString
                 : Configuration["AdminDB:ConnectionString"]
                 ;
 
             if (!string.IsNullOrEmpty(connectionString))
             {
-                services.AddDbContext<PartnerUserDbContext>(options => options.UseMySql(connectionString, mysqlOptions =>
+                services.AddDbContext<AdminDbContext>(options => options.UseMySql(connectionString, mysqlOptions =>
                 {
-                    mysqlOptions.MigrationsAssembly("PartnerUser.Repositories");
+                    mysqlOptions.MigrationsAssembly("User.Repositories");
                 }));
             }
             else
@@ -144,7 +144,7 @@ namespace Admin.Api
             app.ConfigureExceptionHandler(logger);
 
             app.UseMvc();
-            EnsureMigrationOfContext<PartnerUserDbContext>(app);
+            EnsureMigrationOfContext<AdminDbContext>(app);
         }
 
         private void EnsureMigrationOfContext<T>(IApplicationBuilder app) where T : DbContext

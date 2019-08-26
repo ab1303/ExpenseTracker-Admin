@@ -10,7 +10,7 @@ namespace Admin.Api.Controllers
         [HttpGet]
         public ActionResult<string> Get()
         {
-            const string message = "PartnerUser Api Service is healthy!";
+            const string message = "User Api Service is healthy!";
 
             return message;
         }

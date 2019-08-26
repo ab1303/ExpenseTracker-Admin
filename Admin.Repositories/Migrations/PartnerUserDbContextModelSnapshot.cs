@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Admin.Repositories.Migrations
 {
-    [DbContext(typeof(PartnerUserDbContext))]
+    [DbContext(typeof(AdminDbContext))]
     partial class PartnerUserDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
@@ -17,7 +17,7 @@ namespace Admin.Repositories.Migrations
                 .HasAnnotation("ProductVersion", "2.2.4-servicing-10062")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("PartnerUser.Domain.Model.PartnerUser", b =>
+            modelBuilder.Entity("User.Domain.Model.User", b =>
                 {
                     b.Property<Guid>("PartnerUserId")
                         .ValueGeneratedOnAdd()
@@ -43,7 +43,7 @@ namespace Admin.Repositories.Migrations
                     b.HasIndex("OfxUserGuid", "PartnerAppId")
                         .IsUnique();
 
-                    b.ToTable("PartnerUsers");
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,25 +8,25 @@ using Admin.Services.Results;
 
 namespace Admin.Services
 {
-    public class PartnerUserService : IPartnerUserService
+    public class AdminService : IAdminService
     {
-        private readonly IPartnerUserRepository _partnerUserRepository;
+        private readonly IUserRepository _userRepository;
 
-        public PartnerUserService(IPartnerUserRepository partnerUserRepository)
+        public AdminService(IUserRepository userRepository)
         {
-            _partnerUserRepository = partnerUserRepository;
+            _userRepository = userRepository;
         }
 
-        public async Task<HttpServiceResult<Guid>> AddPartnerUserAsync(Guid ofxUserGuid, Guid partnerAppId)
+        public async Task<HttpServiceResult<Guid>> AddUserAsync(Guid userGuid, string email)
         {
             try
             {
-                var partnerUserId = await _partnerUserRepository.AddPartnerUserAsync(ofxUserGuid, partnerAppId);
+                var userId = await _userRepository.AddUserAsync(userGuid, email);
 
                 return new HttpServiceResult<Guid>
                 {
                     Status = ServiceResultStatus.Success,
-                    Model = partnerUserId
+                    Model = userId
                 };
 
             }
@@ -36,39 +36,39 @@ namespace Admin.Services
                 {
                     HttpStatusCode = HttpStatusCode.Conflict,
                     Status = ServiceResultStatus.Failure,
-                    Error = new Error { ErrorCode = ErrorCodes.DuplicatePartnerUserInsert, SystemMessage = e.Message }
+                    Error = new Error { ErrorCode = ErrorCodes.DuplicateUserInsert, SystemMessage = e.Message }
                 };
             }
         }
 
-        public async Task<HttpServiceResult<Admin.Domain.Model.PartnerUser>> GetPartnerUserAsync(Guid partnerUserId)
+        public async Task<HttpServiceResult<Admin.Domain.Model.User>> GetUserAsync(Guid partnerUserId)
         {
-            var partnerUser = await _partnerUserRepository.GetPartnerUserAsync(partnerUserId);
+            var partnerUser = await _userRepository.GetUserAsync(partnerUserId);
 
             if (partnerUser == null)
             {
-                return new HttpServiceResult<Admin.Domain.Model.PartnerUser>
+                return new HttpServiceResult<Admin.Domain.Model.User>
                 {
                     HttpStatusCode = HttpStatusCode.NotFound,
                     Status = ServiceResultStatus.Failure,
                     Error = new Error
                     {
-                        ErrorCode = ErrorCodes.PartnerUserNotFound,
+                        ErrorCode = ErrorCodes.UserNotFound,
                         SystemMessage = $"Partner user not found for PartnerUserId {partnerUserId}"
                     }
                 };
             }
 
-            return new HttpServiceResult<Admin.Domain.Model.PartnerUser>
+            return new HttpServiceResult<Admin.Domain.Model.User>
             {
                 Status = ServiceResultStatus.Success,
                 Model = partnerUser
             };
         }
 
-        public async Task<ServiceResult> UpdatePartnerUserAsync(Admin.Domain.Model.PartnerUser partnerUser)
+        public async Task<ServiceResult> UpdateUserAsync(Admin.Domain.Model.User user)
         {
-            await _partnerUserRepository.UpdatePartnerUserAsync(partnerUser);
+            await _userRepository.UpdateUserAsync(user);
 
             return new ServiceResult
             {
