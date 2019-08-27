@@ -26,6 +26,15 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
+
+# Project files
+
+
+node_modules/
+./Admin.Web/FrontEnd/node_modules/
+
+
+
 .vs/Admin.Api/v15/Server/sqlite3/storage.ide-shm
 .vs/Admin.Api/v15/Server/sqlite3/db.lock
 .vs/Admin.Api/v15/Server/sqlite3/storage.ide-wal
@@ -36,13 +45,11 @@ obj/
 _ReSharper*/
 [Tt]est[Rr]esult*
 packages/
-*/.vs
-/Ozforex.AuthRedirection/.vs/*
-/OzForex.TokenValidator/packages
+
 *.boltdata
 Deployed
 
-Ozforex.Authentication/Visual Studio 2015/
+
 *.ncrunchproject
 *.ncrunchsolution
 

@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin.Services", "Admin.Ser
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin.Api.IntegrationTests", "Admin.Api.IntegrationTests\Admin.Api.IntegrationTests.csproj", "{4B30449E-9717-4482-A524-7CDABE2396E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin.Web", "Admin.Web\Admin.Web.csproj", "{E3C97A95-12BF-4B04-A7B0-89D4FE3FB75A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{4B30449E-9717-4482-A524-7CDABE2396E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B30449E-9717-4482-A524-7CDABE2396E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B30449E-9717-4482-A524-7CDABE2396E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3C97A95-12BF-4B04-A7B0-89D4FE3FB75A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3C97A95-12BF-4B04-A7B0-89D4FE3FB75A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3C97A95-12BF-4B04-A7B0-89D4FE3FB75A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3C97A95-12BF-4B04-A7B0-89D4FE3FB75A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
