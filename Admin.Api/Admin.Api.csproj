@@ -38,8 +38,4 @@
     <ProjectReference Include="..\Admin.Services\Admin.Services.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
 </Project>
