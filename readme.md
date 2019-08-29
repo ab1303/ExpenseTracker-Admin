@@ -6,6 +6,7 @@ Microservice # 1
 Setup Tenancies for Multi Tenant
 Setup Users and their profile pics
 Setup user roles
+Setup Attachments for documents
 
 Send Email to users
 Send Notification to users
@@ -26,4 +27,7 @@ Microservice # 3
 -------------------
 *** Possible Identity Server
 
+Microservice # 4
+-------------------
+Expense Tracking System
 	
