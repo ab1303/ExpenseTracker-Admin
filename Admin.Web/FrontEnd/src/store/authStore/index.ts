@@ -1,54 +1,36 @@
-import { observable, action, reaction } from 'mobx'
 import { isPlainObject } from 'lodash'
+import { initialUserInfo } from './syncUserInfo'
 
-import { StoreExt } from '@utils/reactExt'
-import { routerStore } from './../'
-import { initialUserInfo, syncUserInfo } from './syncUserInfo'
-import { LOCALSTORAGE_KEYS } from '@constants/index'
-
-export class AuthStore extends StoreExt {
+export class AuthStore {
     /**
-     * 用户信息
      *
      * @type {IAuthStore.UserInfo}
      * @memberof AuthStore
      */
-    @observable
     userInfo: IAuthStore.UserInfo = initialUserInfo
+}
 
-    constructor() {
-        super()
-        reaction(() => this.userInfo, syncUserInfo)
-    }
+export const actions = {
+    login: 'login',
+    logout: 'logout'
+}
 
-    @action
-    login = async (params: IAuthStore.LoginParams): Promise<any> => {
-        try {
-            const res = await this.api.auth.login(params)
-            this.setUserInfo(isPlainObject(res) ? res : {})
-            localStorage.setItem(LOCALSTORAGE_KEYS.USERINFO, JSON.stringify(res))
-            routerStore.replace('/')
-        } catch (err) {
-            console.error(err)
+const actionHandlers = {
+    [actions.login]: (state: AuthStore, action) => {
+        const { payload } = action
+        const result = isPlainObject(payload) ? payload : {}
+        return {
+            userInfo: { ...result }
         }
-    }
-
-    logout = () => {
-        this.setUserInfo({})
-        localStorage.removeItem(LOCALSTORAGE_KEYS.USERINFO)
-        routerStore.replace('/login')
-    }
-
-    /**
-     * 初始化用户信息
-     *
-     * @memberof AuthStore
-     */
-    @action
-    setUserInfo = (userInfo: IAuthStore.UserInfo): IAuthStore.UserInfo => {
-        this.userInfo = userInfo
-        return userInfo
+    },
+    [actions.logout]: (state: AuthStore, action) => {
+        return {
+            userInfo: { ...state, userInfo: {} }
+        }
     }
 }
 
-export default new AuthStore()
+export default function(state = new AuthStore(), action) {
+    const handler = actionHandlers[action.type]
+    return handler ? handler(state, action) : state
+}
