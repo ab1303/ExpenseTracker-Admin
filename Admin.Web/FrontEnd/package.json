@@ -14,8 +14,7 @@
         "build:prod": "cross-env APP_ENV=prod npm run build"
     },
     "husky": {
-        "hooks": {
-        }
+        "hooks": {}
     },
     "keywords": [
         "webpack",
@@ -46,6 +45,7 @@
         "react-router": "^5.0.1",
         "react-router-dom": "^5.0.0",
         "react-virtualized": "^9.21.1",
+        "redux-thunk": "^2.3.0",
         "socket.io-client": "^2.2.0",
         "socketio-wildcard": "^2.0.0"
     },
