@@ -3,7 +3,7 @@ import { AnyAction } from 'redux'
 import { actions } from './index'
 
 
-export class GlobalActionCreatorService {
+class GlobalActionCreatorService {
     changeSiderTheme = (theme: string): ThunkAction<void, {}, string, AnyAction> => {
         return (dispatch: ThunkDispatch<{}, {}, AnyAction>): void => {
             try {
@@ -18,4 +18,21 @@ export class GlobalActionCreatorService {
             }
         }
     }
+
+    setOpenKeys = (theme: string): ThunkAction<void, {}, string, AnyAction> => {
+        return (dispatch: ThunkDispatch<{}, {}, AnyAction>): void => {
+            try {
+                dispatch({
+                    type: actions.setOpenKeys,
+                    payload: {
+                        theme,
+                    }
+                })
+            } catch (err) {
+                console.error(err)
+            }
+        }
+    }
 }
+
+export default new GlobalActionCreatorService();

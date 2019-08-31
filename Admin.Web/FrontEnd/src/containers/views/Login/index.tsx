@@ -1,5 +1,4 @@
 import React from 'react'
-import { observer } from 'mobx-react'
 import { Form, Icon, Input, Button } from 'antd'
 import { FormComponentProps } from 'antd/lib/form'
 import intl from 'react-intl-universal'
@@ -75,4 +74,4 @@ function Login({ form }: IProps) {
     )
 }
 
-export default Form.create<IProps>()(observer(Login))
+export default Form.create<IProps>()(Login)

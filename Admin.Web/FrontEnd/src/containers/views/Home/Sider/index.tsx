@@ -6,7 +6,7 @@ import styles from './index.scss'
 import SiderMenu from './Menu'
 import { connect } from 'react-redux';
 
-import { GlobalActionCreatorService } from '@reducers/globalReducer/service';
+import GlobalActionCreatorService from '@reducers/globalReducer/service';
 
 const Sider = ({ sideBarCollapsed, sideBarTheme, changeSiderTheme } ) => {
     const ChangeTheme = (
@@ -45,9 +45,7 @@ function mapStateToProps(state) {
     };
 }
 
-const globalActionCreatorService = new GlobalActionCreatorService();
-
 export default connect(mapStateToProps, {
-    changeSiderTheme: globalActionCreatorService.changeSiderTheme,
+    changeSiderTheme: GlobalActionCreatorService.changeSiderTheme,
 })(Sider)
 

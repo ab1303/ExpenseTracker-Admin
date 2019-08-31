@@ -5,7 +5,7 @@ import * as api from '@services/api'
 import { actions } from './index'
 import { LOCALSTORAGE_KEYS } from '@constants/index';
 
-export class AuthStoreService {
+class AuthStoreService {
     login = (params: IAuthStore.LoginParams): ThunkAction<Promise<void>, {}, IAuthStore.LoginParams, AnyAction> => {
         return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
             try {
@@ -42,3 +42,6 @@ export class AuthStoreService {
         }
     }
 }
+
+
+export default new AuthStoreService();

@@ -1,13 +1,13 @@
 import React from 'react'
-import { observer } from 'mobx-react'
-import { computed } from 'mobx'
 import { Menu, Icon } from 'antd'
 import pathToRegexp from 'path-to-regexp'
 
 import styles from './index.scss'
-// import { RootConsumer } from '@shared/App/Provider'
+import GlobalActionCreatorService from '@reducers/globalReducer/service'
+
 import { arrayToTree, queryArray } from '@utils/index'
 import menu, { IMenu, IMenuInTree } from './../menu'
+import { connect } from 'react-redux';
 
 const { SubMenu } = Menu
 
@@ -20,22 +20,17 @@ interface IProps {
     routerStore: RouterStore
 }
 
-@observer
 class SiderMenu extends React.Component<IProps> {
-    // 打开的菜单层级记录
     private levelMap: NumberObject = {}
 
-    @computed
     get currentRoute() {
         return this.props.routerStore.location.pathname
     }
 
-    @computed
     get menuTree() {
         return arrayToTree<IMenuInTree>(menu, 'id', 'pid')
     }
 
-    @computed
     get menuProps() {
         const { sideBarCollapsed, navOpenKeys } = this.props
         return !sideBarCollapsed
@@ -162,21 +157,28 @@ class SiderMenu extends React.Component<IProps> {
     }
 }
 
-function Wrapper() {
-    return (
-        <RootConsumer>
-            {({ routerStore, authStore, globalStore }) => (
-                <SiderMenu
-                    routerStore={routerStore}
-                    userInfo={authStore.userInfo}
-                    sideBarCollapsed={globalStore.sideBarCollapsed}
-                    sideBarTheme={globalStore.sideBarTheme}
-                    navOpenKeys={globalStore.navOpenKeys}
-                    setOpenKeys={globalStore.setOpenKeys}
-                />
-            )}
-        </RootConsumer>
-    )
+const Wrapper = ({ router, authReducer, globalReducer, setOpenKeys }) => (
+    <SiderMenu
+        routerStore={router}
+        userInfo={authReducer.userInfo}
+        sideBarCollapsed={globalReducer.sideBarCollapsed}
+        sideBarTheme={globalReducer.sideBarTheme}
+        navOpenKeys={globalReducer.navOpenKeys}
+        setOpenKeys={setOpenKeys}
+    />
+); 
+
+
+
+function mapStateToProps(state) {
+    const { globalReducer, authReducer, router } = state;
+    return {
+        globalReducer,
+        authReducer,
+        router,
+    };
 }
 
-export default Wrapper
+export default connect(mapStateToProps, {
+    setOpenKeys: GlobalActionCreatorService.setOpenKeys,
+})(Wrapper)

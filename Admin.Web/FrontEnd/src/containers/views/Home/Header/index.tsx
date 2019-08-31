@@ -4,7 +4,7 @@ import { Layout, Icon } from 'antd'
 
 import styles from './index.scss'
 import { GITHUB_LINK } from '@constants/index'
-import { AuthStoreService } from '@reducers/authReducer/service'
+import AuthStoreService from '@reducers/authReducer/service'
 
 const Header = props => {
     return (
@@ -36,9 +36,7 @@ function mapStateToProps(state) {
     };
 }
 
-const authService = new AuthStoreService();
-
 export default connect(mapStateToProps, {
-    login: authService.login,
-    logout: authService.logout
+    login: AuthStoreService.login,
+    logout: AuthStoreService.logout
 })(Header)
