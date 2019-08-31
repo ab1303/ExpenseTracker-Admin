@@ -5,7 +5,7 @@ import { Menu, Icon } from 'antd'
 import pathToRegexp from 'path-to-regexp'
 
 import styles from './index.scss'
-import { RootConsumer } from '@shared/App/Provider'
+// import { RootConsumer } from '@shared/App/Provider'
 import { arrayToTree, queryArray } from '@utils/index'
 import menu, { IMenu, IMenuInTree } from './../menu'
 

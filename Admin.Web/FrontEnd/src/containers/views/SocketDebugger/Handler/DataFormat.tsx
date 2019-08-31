@@ -2,7 +2,7 @@ import React from 'react'
 import { observer } from 'mobx-react'
 import { Select } from 'antd'
 
-import useRootStore from '@store/useRootStore'
+import useRootStore from 'reducers/useRootStore'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 import { DATA_FORMATS } from '@constants/socket'
 

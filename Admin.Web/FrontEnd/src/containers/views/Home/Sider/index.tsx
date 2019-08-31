@@ -1,15 +1,14 @@
 import React from 'react'
 import classnames from 'classnames'
-import { observer } from 'mobx-react'
 import { Layout, Icon, Switch } from 'antd'
 
 import styles from './index.scss'
-import useRootStore from '@store/useRootStore'
 import SiderMenu from './Menu'
+import { connect } from 'react-redux';
 
-function Sider() {
-    const { sideBarCollapsed, sideBarTheme, changeSiderTheme } = useRootStore().globalStore
+import { GlobalActionCreatorService } from '@reducers/globalReducer/service';
 
+const Sider = ({ sideBarCollapsed, sideBarTheme, changeSiderTheme } ) => {
     const ChangeTheme = (
         <div className={classnames(styles.changeTheme, sideBarTheme === 'dark' && styles.dark)}>
             Switch Theme
@@ -38,4 +37,17 @@ function Sider() {
     )
 }
 
-export default observer(Sider)
+function mapStateToProps(state) {
+    const { globalReducer, authReducer } = state;
+    return {
+        ...globalReducer,
+        ...authReducer,
+    };
+}
+
+const globalActionCreatorService = new GlobalActionCreatorService();
+
+export default connect(mapStateToProps, {
+    changeSiderTheme: globalActionCreatorService.changeSiderTheme,
+})(Sider)
+

@@ -1,18 +1,15 @@
 import React from 'react'
 import Loadable from 'react-loadable'
-import { HashRouter, Router, Switch, Route } from 'react-router-dom'
-import { createHashHistory } from 'history'
-import { syncHistoryWithStore } from 'mobx-react-router'
+import { Switch, Route } from 'react-router-dom'
 
 import styles from './index.scss'
-import * as store from '@store/index'
 import PageLoading from '@components/PageLoading'
 import Error from '@components/Error'
-import Provider from './Provider'
 import IntlWrapper from './IntlWrapper'
 
-const hashHistory = createHashHistory()
-const history = syncHistoryWithStore(hashHistory, store.routerStore)
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'connected-react-router'
+import configureStore, { history } from '../../../configureStore'
 
 const Home = Loadable({
     loader: () => import(/* webpackChunkName: "home" */ '@views/Home'),
@@ -25,20 +22,20 @@ const Login = Loadable({
 
 const AppWrapper = ({ children }: { children?: React.ReactNode }) => <div className={styles.appWrapper}>{children}</div>
 
+const store = configureStore({  })
+
 function App() {
     return (
-        <Provider>
+        <Provider store={store}>
             <IntlWrapper>
                 <AppWrapper>
-                    <Router history={history}>
-                        <HashRouter>
-                            <Switch>
-                                <Route exact path="/login" component={Login} />
-                                <Route path="/" component={Home} />
-                                <Route component={Error} />
-                            </Switch>
-                        </HashRouter>
-                    </Router>
+                <ConnectedRouter history={history}>
+                        <Switch>
+                            <Route exact path="/login" component={Login} />
+                            <Route path="/" component={Home} />
+                            <Route component={Error} />
+                        </Switch>
+                    </ConnectedRouter>
                 </AppWrapper>
             </IntlWrapper>
         </Provider>

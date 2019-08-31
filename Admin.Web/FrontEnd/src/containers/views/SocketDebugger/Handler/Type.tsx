@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 import { Radio } from 'antd'
 import { RadioChangeEvent } from 'antd/lib/radio'
 
-import useRootStore from '@store/useRootStore'
+import useRootStore from 'reducers/useRootStore'
 import { LOCALSTORAGE_KEYS } from '@constants/index'
 import { SOCKER_TYPES } from '@constants/socket'
 

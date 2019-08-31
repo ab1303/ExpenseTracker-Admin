@@ -12,7 +12,7 @@
         "paths": {
             "@constants/*": ["constants/*"],
             "@services/*": ["services/*"],
-            "@store/*": ["store/*"],
+            "@reducers/*": ["reducers/*"],
             "@utils/*": ["utils/*"],
             "@assets/*": ["assets/*"],
             "@locales/*": ["locales/*"],

@@ -5,14 +5,14 @@ import { FormComponentProps } from 'antd/lib/form'
 import intl from 'react-intl-universal'
 
 import styles from './index.scss'
-import useRootStore from '@store/useRootStore'
+// import useRootStore from 'reducers/useRootStore'
 
 const FormItem = Form.Item
 
 interface IProps extends FormComponentProps {}
 
 function Login({ form }: IProps) {
-    const { authStore } = useRootStore()
+    // const { authStore } = useRootStore()
 
     const [loading, setLoading] = React.useState(false)
 
@@ -23,7 +23,8 @@ function Login({ form }: IProps) {
                 if (!err) {
                     setLoading(true)
                     try {
-                        await authStore.login(values)
+                        // TODO
+                        // await authStore.login(values)
                     } finally {
                         setLoading(false)
                     }

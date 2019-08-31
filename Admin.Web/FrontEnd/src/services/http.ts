@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig as _AxiosRequestConfig, Method } from 'axios'
 import qs from 'qs'
 import { message } from 'antd'
 
-import { userInfo } from '@store/authStore/syncUserInfo'
+import { userInfo } from 'reducers/authReducer/syncUserInfo'
 
 export interface AxiosRequestConfig extends _AxiosRequestConfig {
     startTime?: Date
