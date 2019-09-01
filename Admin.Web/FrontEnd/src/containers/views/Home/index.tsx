@@ -8,15 +8,7 @@ import Error from '@components/Error'
 import menu from './menu'
 import Header from './Header'
 import Users from '@views/Users/index'
-
-
 import Sider from './Sider'
-
-const TestRender = () => (
-    <div>
-        Just a fake test
-    </div>
-);
 
 
 function Home() {
@@ -28,7 +20,7 @@ function Home() {
                 <Layout.Content className={styles.content}>
                     <Router>
                         <Switch>
-                            {menu.map(m => {
+                            {/* {menu.map(m => {
                                 if (!m.path) {
                                     return null
                                 }
@@ -37,11 +29,16 @@ function Home() {
                                         key={m.id}
                                         exact={m.exact}
                                         path={m.path}
-                                        // component={m.component ? asynchronousComponents[m.component] : null}
-                                        component={TestRender}
+                                        component={m.component ? asynchronousComponents[m.component] : null}
                                     />
                                 )
-                            })}
+                            })} */}
+                            <Route
+                                key={2}
+                                exact
+                                path='/'
+                                component={Users}
+                            />
                             <Route component={Error} />
                         </Switch>
                     </Router>

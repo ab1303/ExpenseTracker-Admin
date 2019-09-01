@@ -1,18 +1,19 @@
-import { StoreExt } from '@utils/reactExt'
+
 import { ThunkAction, ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
-import { actions } from 'reducers/userStore'
+import { actions } from './index'
 
+import * as api from '@services/api'
 import { IPageParams } from 'shared/types/pageParams'
 import { PaginationConfig } from 'antd/lib/pagination'
 
-export class UserStoreService extends StoreExt {
-    getUsers = (page: IPageParams): ThunkAction<Promise<void>, {}, IPageParams, AnyAction> => {
+ class UserActionCreatorService {
+    getUsers = (page: IPageParams = { index: 1, size: 30 }): ThunkAction<Promise<void>, {}, IPageParams, AnyAction> => {
         return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
             try {
                 dispatch({ type: actions.showUserListLoading })
 
-                const res = await this.api.user.getUsers({ pageIndex: page.index, pageSize: page.size })
+                const res = await api.user.getUsers({ pageIndex: page.index, pageSize: page.size })
                 dispatch({
                     type: actions.getUsers,
                     payload: {
@@ -33,7 +34,7 @@ export class UserStoreService extends StoreExt {
             try {
                 dispatch({ type: actions.showUserListLoading })
 
-                await this.api.user.createUser(user)
+                await api.user.createUser(user)
 
                 dispatch({ type: actions.hideUserListLoading })
             } catch (err) {
@@ -47,7 +48,7 @@ export class UserStoreService extends StoreExt {
             try {
                 dispatch({ type: actions.showUserListLoading })
 
-                await this.api.user.modifyUser(user)
+                await api.user.modifyUser(user)
 
                 dispatch({ type: actions.modifyUser, paylaod: { user } })
                 dispatch({ type: actions.hideUserListLoading })
@@ -60,7 +61,7 @@ export class UserStoreService extends StoreExt {
     deleteUser = (id: number): ThunkAction<Promise<void>, {}, number, AnyAction> => {
         return async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
             try {
-                await this.api.user.deleteUser({ id })
+                await api.user.deleteUser({ id })
                 dispatch({ type: actions.modifyUser, paylaod: { id } })
             } catch (err) {
                 console.error(err)
@@ -75,7 +76,7 @@ export class UserStoreService extends StoreExt {
 
                 dispatch({ type: actions.showUserListLoading })
 
-                const res = await this.api.user.getUsers({ pageIndex: current, pageSize: pageSize })
+                const res = await api.user.getUsers({ pageIndex: current, pageSize: pageSize })
 
                 dispatch({
                     type: actions.handleTableChange,
@@ -93,3 +94,5 @@ export class UserStoreService extends StoreExt {
         }
     }
 }
+
+export default new UserActionCreatorService();

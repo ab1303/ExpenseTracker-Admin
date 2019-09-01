@@ -1,7 +1,6 @@
-import { StoreExt } from '@utils/reactExt'
 import { IPageParams } from 'shared/types/pageParams'
 
-export class UserStore extends StoreExt {
+export class UserStore {
     getUsersloading: boolean = false
 
     users: IUserStore.IUser[] = []

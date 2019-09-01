@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from 'antd'
 
 import styles from './index.scss'
-import UserModal from './../UserModal'
+import UserModal from '../UserModal'
 
 function Header() {
     const [modalVisible, setModalVisible] = React.useState(false)
@@ -16,7 +16,7 @@ function Header() {
             <Button type="primary" onClick={toggleModalVisible}>
                 add user
             </Button>
-            <UserModal visible={modalVisible} onCancel={toggleModalVisible} />
+            {/* <UserModal visible={modalVisible} onCancel={toggleModalVisible} /> */}
         </div>
     )
 }
