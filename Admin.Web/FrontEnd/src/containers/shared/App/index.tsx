@@ -1,6 +1,6 @@
 import React from 'react'
 // import Loadable from 'react-loadable'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, HashRouter } from 'react-router-dom'
 
 import styles from './index.scss'
 // import PageLoading from '@components/PageLoading'
@@ -34,12 +34,14 @@ const App = () => {
         <Provider store={store}>
             <IntlWrapper>
                 <AppWrapper>
-                <ConnectedRouter history={history}>
-                        <Switch>
-                            <Route exact path="/login" component={Login} />
-                            <Route path="/" component={Home} />
-                            <Route component={Error} />
-                        </Switch>
+                    <ConnectedRouter history={history}>
+                        <HashRouter>
+                            <Switch>
+                                <Route exact path="/login" component={Login} />
+                                <Route path="/" component={Home} />
+                                <Route component={Error} />
+                            </Switch>
+                        </HashRouter>
                     </ConnectedRouter>
                 </AppWrapper>
             </IntlWrapper>
