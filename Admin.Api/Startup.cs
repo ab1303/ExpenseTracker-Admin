@@ -60,7 +60,7 @@ namespace Admin.Api
 
             // Register Services
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserVerificationStatusService, UserVerificationStatusService>();
 
             // SeriLogger Setup

@@ -13,12 +13,12 @@ namespace Admin.Api.UnitTests.Services
     public class UserServiceTests
     {
         private readonly Mock<IUserRepository> _userRepositoryMock;
-        private readonly AdminService _adminService;
+        private readonly UserService _adminService;
 
         public UserServiceTests()
         {
             _userRepositoryMock = new Mock<IUserRepository>();
-            _adminService = new AdminService(_userRepositoryMock.Object);
+            _adminService = new UserService(_userRepositoryMock.Object);
         }
 
         [Fact(DisplayName = "AddUserAsync Should Return Success On Add")]

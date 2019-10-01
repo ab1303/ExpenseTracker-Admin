@@ -6,3 +6,5 @@ npm-debug*
 /.cache-loader
 /.awcache
 /deploy
+/src/**/*.js
+/src/**/*.js.map

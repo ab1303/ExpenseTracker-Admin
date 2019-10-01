@@ -14,15 +14,15 @@ namespace Admin.Api.Controllers
 {
     [Route("api/" + Constants.ApiVersion.V1 + "/[controller]")]
     [ApiController]
-    public class AdminController : ControllerBase
+    public class UserController : ControllerBase
     {
-        private readonly IAdminService _adminService;
+        private readonly IUserService _adminService;
         private readonly IQueryService _queryService;
         private readonly IUserVerificationStatusService _userVerificationStatusService;
         private readonly IMapper _mapper;
 
-        public AdminController(IMapper mapper,
-            IAdminService adminService,
+        public UserController(IMapper mapper,
+            IUserService adminService,
             IUserVerificationStatusService userVerificationStatusService,
             IQueryService queryService
             )
@@ -51,16 +51,16 @@ namespace Admin.Api.Controllers
                 ReturnAllResults = false
             };
 
-            var partnerUserListResult = _queryService.Execute(query, out var totalCount);
-            var partnerUserList = _mapper.Map<IEnumerable<UserResponse>>(partnerUserListResult).ToArray();
+            var userListResult = _queryService.Execute(query, out var totalCount);
+            var userList = _mapper.Map<IEnumerable<UserResponse>>(userListResult).ToArray();
 
-            var partnerUsersPaginatedResponse =
+            var usersPaginatedResponse =
                 new AdminPaginatedResponse(totalCount, query.Pagination.pageNumber, query.Pagination.size)
                 {
-                    Users = partnerUserList
+                    Users = userList
                 };
 
-            return Ok(partnerUsersPaginatedResponse);
+            return Ok(usersPaginatedResponse);
         }
 
         /// <summary>
@@ -74,9 +74,9 @@ namespace Admin.Api.Controllers
         /// <response code="201">When a new User is created</response>
         /// <response code="400">If UserGuid is empty, or FirstName is empty</response>
         /// <response code="409">UserGuid + FirstName already exists in the system</response>
-        [HttpPost(Name = "CreatePartnerUser")]
+        [HttpPost(Name = "CreateUser")]
         [ProducesResponseType(typeof(CreateUserResponse), 201)]
-        public async Task<IActionResult> CreatePartnerUser([FromBody] CreateUserRequest request)
+        public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
             var serviceResult = await _adminService.AddUserAsync(request.UserGuid, request.Email);
             if (serviceResult.IsSuccess == false)
@@ -84,10 +84,10 @@ namespace Admin.Api.Controllers
                 return StatusCode((int)serviceResult.HttpStatusCode, serviceResult.Error);
             }
 
-            var createdPartnerUserResponse = new CreateUserResponse { UserId = serviceResult.Model };
+            var createdUserResponse = new CreateUserResponse { UserId = serviceResult.Model };
 
-            return CreatedAtRoute("GetPartnerUser",
-                new { partnerUserId = createdPartnerUserResponse.UserId }, createdPartnerUserResponse);
+            return CreatedAtRoute("GetUser",
+                new { userId = createdUserResponse.UserId }, createdUserResponse);
         }
 
         /// <summary>
@@ -96,14 +96,14 @@ namespace Admin.Api.Controllers
         /// <remarks>
         /// Use this endpoint to update a User
         /// </remarks>
-        /// <param name="partnerUserId"></param>
+        /// <param name="userId"></param>
         /// <param  name="request">Details required for update of User</param>
         /// <returns>Returns OK on successful update of User</returns>
         /// <response code="200">When a new User is updated</response>
-        /// <response code="404">User not found by partnerUserId</response>
-        [HttpPut("{partnerUserId:guid}", Name = "UpdatePartnerUser")]
+        /// <response code="404">User not found by userId</response>
+        [HttpPut("{userId:guid}", Name = "UpdateUser")]
         [ProducesResponseType(200)]
-        public async Task<IActionResult> UpdatePartnerUser(Guid partnerUserId, [FromBody] UpdateUserRequest request)
+        public async Task<IActionResult> UpdateUser(Guid userId, [FromBody] UpdateUserRequest request)
         {
             var validateRequestResult = request.ValidateAllEditablePropertiesSet();
             if (validateRequestResult.IsSuccess == false)
@@ -111,16 +111,16 @@ namespace Admin.Api.Controllers
                 return StatusCode((int)validateRequestResult.HttpStatusCode, validateRequestResult.Error);
             }
 
-            var partnerServiceResult = await _adminService.GetUserAsync(partnerUserId);
+            var partnerServiceResult = await _adminService.GetUserAsync(userId);
 
             if (partnerServiceResult.IsSuccess == false)
             {
                 return StatusCode((int)partnerServiceResult.HttpStatusCode, partnerServiceResult.Error);
             }
 
-            var partnerUser = partnerServiceResult.Model;
+            var user = partnerServiceResult.Model;
 
-            await _adminService.UpdateUserAsync(partnerUser);
+            await _adminService.UpdateUserAsync(user);
 
             return Ok();
         }
@@ -131,24 +131,24 @@ namespace Admin.Api.Controllers
         /// <remarks>
         /// Use this endpoint to retrive a User by UserId
         /// </remarks>
-        /// <param name="partnerUserId"></param>
+        /// <param name="userId"></param>
         /// <returns>Returns the requested User</returns>
         /// <response code="200">When a User is returned</response>
-        /// <response code="404">User not found by partnerUserId</response>
-        [HttpGet("{partnerUserId:guid}", Name = "GetPartnerUser")]
+        /// <response code="404">User not found by userId</response>
+        [HttpGet("{userId:guid}", Name = "GetUser")]
         [ProducesResponseType(typeof(UserResponse), 200)]
-        public async Task<IActionResult> GetPartnerUser(Guid partnerUserId)
+        public async Task<IActionResult> GetUser(Guid userId)
         {
-            var partnerUserResult = await _adminService.GetUserAsync(partnerUserId);
+            var userResult = await _adminService.GetUserAsync(userId);
 
-            if (partnerUserResult.IsSuccess == false)
+            if (userResult.IsSuccess == false)
             {
-                return StatusCode((int)partnerUserResult.HttpStatusCode, partnerUserResult.Error);
+                return StatusCode((int)userResult.HttpStatusCode, userResult.Error);
             }
 
-            var partnerUserResponse = _mapper.Map<UserResponse>(partnerUserResult.Model);
+            var userResponse = _mapper.Map<UserResponse>(userResult.Model);
 
-            return Ok(partnerUserResponse);
+            return Ok(userResponse);
         }
 
         private string GetBearerToken()

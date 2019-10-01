@@ -4,7 +4,7 @@ using Admin.Services.Results;
 
 namespace Admin.Services.interfaces
 {
-    public interface IAdminService
+    public interface IUserService
     {
         Task<HttpServiceResult<Guid>> AddUserAsync(Guid userGuid, string email);
         Task<HttpServiceResult<Domain.Model.User>> GetUserAsync(Guid userId);
