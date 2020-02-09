@@ -144,7 +144,9 @@ namespace Admin.Api
             app.ConfigureExceptionHandler(logger);
 
             app.UseMvc();
-            EnsureMigrationOfContext<AdminDbContext>(app);
+
+            // TODO: Uncomment if required
+            //EnsureMigrationOfContext<AdminDbContext>(app);
         }
 
         private void EnsureMigrationOfContext<T>(IApplicationBuilder app) where T : DbContext

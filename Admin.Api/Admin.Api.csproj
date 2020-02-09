@@ -12,9 +12,13 @@
 
   <ItemGroup>
     <Compile Remove="Constants\**" />
+    <Compile Remove="wwwroot\**" />
     <Content Remove="Constants\**" />
+    <Content Remove="wwwroot\**" />
     <EmbeddedResource Remove="Constants\**" />
+    <EmbeddedResource Remove="wwwroot\**" />
     <None Remove="Constants\**" />
+    <None Remove="wwwroot\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,10 +40,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Admin.Services\Admin.Services.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
