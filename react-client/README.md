@@ -39,6 +39,11 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Migrations
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- @apollo/react-hooks been deprecated; new library is "apollo-client". apollo-client replaces following libraries
+- - apollo-client
+- - apollo-cache-inmemory
+- - apollo-link
+- - apollo-link-http
+- - @apollo/react-hooks
