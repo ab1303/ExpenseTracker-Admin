@@ -15,30 +15,27 @@ import {
 } from '@material-ui/core';
 import Page from 'src/components/Page';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    backgroundColor: theme.palette.background.dark,
+    // backgroundColor: theme.palette.background.dark,
+    backgroundColor: theme.palette.background.default,
     height: '100%',
     paddingBottom: theme.spacing(3),
     paddingTop: theme.spacing(3)
   }
 }));
 
-const RegisterView = () => {
+const RegisterView: React.FC = () => {
   const classes = useStyles();
   const navigate = useNavigate();
 
   return (
-    <Page
-      className={classes.root}
-      title="Register"
-    >
+    <Page className={classes.root} title="Register">
       <Box
         display="flex"
         flexDirection="column"
         height="100%"
-        justifyContent="center"
-      >
+        justifyContent="center">
         <Container maxWidth="sm">
           <Formik
             initialValues={{
@@ -48,19 +45,25 @@ const RegisterView = () => {
               password: '',
               policy: false
             }}
-            validationSchema={
-              Yup.object().shape({
-                email: Yup.string().email('Must be a valid email').max(255).required('Email is required'),
-                firstName: Yup.string().max(255).required('First name is required'),
-                lastName: Yup.string().max(255).required('Last name is required'),
-                password: Yup.string().max(255).required('password is required'),
-                policy: Yup.boolean().oneOf([true], 'This field must be checked')
-              })
-            }
+            validationSchema={Yup.object().shape({
+              email: Yup.string()
+                .email('Must be a valid email')
+                .max(255)
+                .required('Email is required'),
+              firstName: Yup.string()
+                .max(255)
+                .required('First name is required'),
+              lastName: Yup.string()
+                .max(255)
+                .required('Last name is required'),
+              password: Yup.string()
+                .max(255)
+                .required('password is required'),
+              policy: Yup.boolean().oneOf([true], 'This field must be checked')
+            })}
             onSubmit={() => {
               navigate('/app/dashboard', { replace: true });
-            }}
-          >
+            }}>
             {({
               errors,
               handleBlur,
@@ -72,17 +75,13 @@ const RegisterView = () => {
             }) => (
               <form onSubmit={handleSubmit}>
                 <Box mb={3}>
-                  <Typography
-                    color="textPrimary"
-                    variant="h2"
-                  >
+                  <Typography color="textPrimary" variant="h2">
                     Create new account
                   </Typography>
                   <Typography
                     color="textSecondary"
                     gutterBottom
-                    variant="body2"
-                  >
+                    variant="body2">
                     Use your email to create new account
                   </Typography>
                 </Box>
@@ -136,37 +135,26 @@ const RegisterView = () => {
                   value={values.password}
                   variant="outlined"
                 />
-                <Box
-                  alignItems="center"
-                  display="flex"
-                  ml={-1}
-                >
+                <Box alignItems="center" display="flex" ml={-1}>
                   <Checkbox
                     checked={values.policy}
                     name="policy"
                     onChange={handleChange}
                   />
-                  <Typography
-                    color="textSecondary"
-                    variant="body1"
-                  >
-                    I have read the
-                    {' '}
+                  <Typography color="textSecondary" variant="body1">
+                    I have read the{' '}
                     <Link
                       color="primary"
                       component={RouterLink}
                       to="#"
                       underline="always"
-                      variant="h6"
-                    >
+                      variant="h6">
                       Terms and Conditions
                     </Link>
                   </Typography>
                 </Box>
                 {Boolean(touched.policy && errors.policy) && (
-                  <FormHelperText error>
-                    {errors.policy}
-                  </FormHelperText>
+                  <FormHelperText error>{errors.policy}</FormHelperText>
                 )}
                 <Box my={2}>
                   <Button
@@ -175,22 +163,13 @@ const RegisterView = () => {
                     fullWidth
                     size="large"
                     type="submit"
-                    variant="contained"
-                  >
+                    variant="contained">
                     Sign up now
                   </Button>
                 </Box>
-                <Typography
-                  color="textSecondary"
-                  variant="body1"
-                >
-                  Have an account?
-                  {' '}
-                  <Link
-                    component={RouterLink}
-                    to="/login"
-                    variant="h6"
-                  >
+                <Typography color="textSecondary" variant="body1">
+                  Have an account?{' '}
+                  <Link component={RouterLink} to="/login" variant="h6">
                     Sign in
                   </Link>
                 </Typography>
